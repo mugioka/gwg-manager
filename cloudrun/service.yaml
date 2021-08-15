@@ -1,0 +1,49 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: iam-group-manager
+  annotations:
+    run.googleapis.com/ingress: internal
+  labels:
+    app: iam-group-manager
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: '1'
+        autoscaling.knative.dev/maxScale: '1'
+        run.googleapis.com/cpu-throttling: 'false'
+    spec:
+      containerConcurrency: 80
+      containers:
+      - image: gcr.io/YOUR_PROJECT/iam-group-manager:latest
+        env:
+        - name: SLACK_APP_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: latest
+              name: SLACK_APP_TOKEN
+        - name: SLACK_BOT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: latest
+              name: SLACK_BOT_TOKEN
+        - name: ORG_CUSTOMER_ID
+          valueFrom:
+            secretKeyRef:
+              key: latest
+              name: ORG_CUSTOMER_ID
+        - name: APPROVER_GROUP_ID
+          valueFrom:
+            secretKeyRef:
+              key: latest
+              name: APPROVER_GROUP_ID
+        ports:
+        - containerPort: 8080
+          name: http1
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+      serviceAccountName: iam-group-manager@YOUR_PROJECT.iam.gserviceaccount.com
+      timeoutSeconds: 1800
