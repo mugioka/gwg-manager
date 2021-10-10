@@ -38,7 +38,7 @@ docker build -t gcr.io/YOUR_PROJECT/iam-group-manager:latest .
 docker push gcr.io/YOUR_PROJECT/iam-group-manager:latest
 ```
 ## How to develop
-- Install an asdf if your did not install it.
+- Install an asdf if you did not install it.
   - [docs](http://asdf-vm.com/guide/getting-started.html#_1-install-dependencies)
 - Install tools
   ```bash
