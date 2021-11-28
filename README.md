@@ -1,6 +1,6 @@
 ![golangci-lint](https://github.com/mugioka/gcp-group-manager/actions/workflows/golangci-lint.yaml/badge.svg?branch=master)
-## What is gwg-manager
-gwg-manager is SlackBot for managing Google Workspace Group with ChatOps.
+## What is GWGManager
+GWGManager is SlackBot for managing Google Workspace Groups with ChatOps.
 Now that is intended to be deployed in GCP CloudRun.
 
 ## Demo
