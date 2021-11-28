@@ -27,7 +27,7 @@ gcloud organizations list --format json | jq '.[].owner.directoryCustomerId
 #### How to get the slack user group id
 visit [here](https://api.slack.com/methods/usergroups.list)
 
-### Deploy GCPGroupManager to CloudRun
+### Deploy GWGManager to CloudRun
 ```
 gcloud beta run services replace cloudrun/service.yaml --region YOUR_REGION --project YOUR_PROJECT
 ```
