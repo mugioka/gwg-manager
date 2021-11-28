@@ -7,11 +7,11 @@ Now that is intended to be deployed in GCP CloudRun.
 ![demo (1)](https://user-images.githubusercontent.com/62197019/134805434-519f0925-dcdc-4b03-be8e-1f233a0990b7.gif)
 
 ## Usage
-### Create a ServiceAccount for GCPGroupManager
+### Create a ServiceAccount for GWGManager
 ```
 gcloud deployment-manager deployments create serviceaccount-iam-group-manager --config deployment-manager/serviceaccount.yaml --project YOUR_PROJECT
 ```
-### Store the four environment variables for GCPGroupManager to the secret manager.
+### Store the four environment variables for GWGManager to the secret manager.
 
 |Name|Description|
 |---|---|
